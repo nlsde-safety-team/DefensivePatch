@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+finetunes/*.pth
+test_logs/
+inputs.png 
+mask.png 
+data/
