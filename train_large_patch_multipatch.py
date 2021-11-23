@@ -17,6 +17,7 @@ import torchvision.transforms.functional as TF
 import argparse
 import models.vgg as vgg
 import models.mobilenet as mobilenet
+import models.mobilenetv3 as mobilenetv3
 import models.shufflenet as shufflenet
 
 parser = argparse.ArgumentParser()
@@ -137,6 +138,10 @@ def initialize_model(model_name):
     elif model_name == "mobilenet":
         model = mobilenet.MobileNetV2(10).cuda()
         model.load_state_dict(torch.load('finetunes/mobilenet_best_new.pth'))
+
+    elif model_name == "mobilenetv3":
+        model = mobilenetv3.MobileNetV3(n_class=10, input_size=32).cuda()
+        model.load_state_dict(torch.load('finetunes/mobilenetv3_best_new.pth'))
 
     elif model_name == "shufflenet":
         model = shufflenet.ShuffleNet(10).cuda()

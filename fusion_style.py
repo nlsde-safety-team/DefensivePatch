@@ -16,6 +16,7 @@ from PIL import Image
 import models.vgg as vgg
 import models.resnet as resnet
 import models.mobilenet as mobilenet
+import models.mobilenetv3 as mobilenetv3
 import models.shufflenet as shufflenet
 
 import json
@@ -90,6 +91,9 @@ def initialize_model(model_name):
         model = mobilenet.MobileNetV2(10).cuda()
         model.load_state_dict(torch.load('finetunes/mobilenet_best_new.pth'))
 
+    elif model_name == "mobilenetv3":
+        model = mobilenetv3.MobileNetV3(n_class=10, input_size=32).cuda()
+        model.load_state_dict(torch.load('finetunes/mobilenetv3_best_new.pth'))
 
     elif model_name == "shufflenet":
         model = shufflenet.ShuffleNet(10).cuda()
