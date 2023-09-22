@@ -316,7 +316,7 @@ for model_name in model_names:
 
 
 if args.prior != 'None':
-    defense_patch = torch.load('test_logs/fusion-%s+epoch-5+shape-30-26+loss-CE_mask+/prior.pkl' % (args.prior))
+    defense_patch = torch.load('test_logs/fusion-%s+epoch-5+shape-8+loss-CE_mask+/prior.pkl' % (args.prior))
     defense_patch = defense_patch[:, :, 1:31, 1:31]
     defense_patch = torch.autograd.Variable(defense_patch).to(device)
 else:
